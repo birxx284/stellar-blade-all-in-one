@@ -1,0 +1,106 @@
+﻿Stellar Todo en uno 0.3 · structural integration tests
+PASS: real public sample: read/write is byte-for-byte identical
+PASS: real sample has the expected 24 top-level sections
+PASS: embedded catalog has unique wardrobe identifiers
+PASS: synthetic fixture has no cans and no Black Pearl
+PASS: Black Pearl automatically adds 49 can records, 8 milestones and its acquisition record
+PASS: saving a modified copy leaves the source unchanged
+PASS: wardrobe save creates a permanent byte-identical original backup
+PASS: backup includes recovery instructions and source checksum
+PASS: modified copy parses with 49 can records and Black Pearl ownership
+PASS: no duplicate Black Pearl inventory entries
+PASS: applying the same selection twice is idempotent
+PASS: all world and chest data are preserved instead of guessed
+PASS: quest and story records are preserved
+PASS: unchanged section: NewGameCreateTime
+PASS: unchanged section: DataMap_SBActor
+PASS: unchanged section: DataMap_SBEffect
+PASS: unchanged section: DataMap_SBQuest
+PASS: unchanged section: DataMap_SBEnv
+PASS: unchanged section: DataMap_SBAcquisitionSkill
+PASS: unchanged section: SBFishingLogBook
+PASS: unchanged section: DataMap_float
+PASS: unchanged section: DataMap_FString
+PASS: unchanged section: DataMap_int32
+PASS: unchanged section: DataMap_int64
+PASS: unchanged section: LevelActorStorage
+PASS: unchanged section: TheaterStorage
+PASS: unchanged section: UIStorage
+PASS: unchanged section: GamePlayProgressRecordData
+PASS: unchanged section: SBHint
+PASS: unchanged section: TrainingRoomData
+PASS: unchanged section: NewGamePlusBaseData
+PASS: unchanged section: EventGiftInfo
+PASS: unchanged section: NikkeStageInfo
+PASS: unchanged section: SaveFileVersionInfo
+PASS: unchanged section: OnlineAccountInfo
+PASS: NieR synchronization restores 15 album, 15 pickup and 2 regional records
+PASS: NieR progress synchronization is idempotent
+PASS: bulk addition handles every base cosmetic category
+PASS: all selected base identifiers exist in the modified inventory/ownership view
+PASS: each added item has a distinct inventory GUID
+PASS: bulk additions remain idempotent
+PASS: money, consumables, ammo, materials and wardrobe are combined in one plan
+PASS: money updates both compatible currency counters
+PASS: consumable stock changes preserve separate equipped charges
+PASS: ammo and material quantities persist after serialization
+PASS: combined output also contains the chosen wardrobe and collection changes
+PASS: subsequent saves keep previous residual backups and create unique new backups
+PASS: combined wardrobe and quantity changes are idempotent
+PASS: lower stock clamps separate charges to the new total
+PASS: reject quantity changes for unknown identifiers
+PASS: reject negative money
+PASS: reject money outside the editor range
+PASS: collectible NieR counters cannot be altered as arbitrary currency
+PASS: reject NieR synchronization without pre-existing NieR ownership data
+PASS: reject arbitrary identifiers outside the catalog
+PASS: choosing the source path creates a renamed copy and preserves the source
+PASS: choosing an existing destination succeeds with a new name and preserves the previous file
+PASS: save creates missing destination directories and appends the save extension
+PASS: a moved or removed source can be saved from the loaded snapshot with a verified residual backup
+PASS: reject a plan when the source has changed since preview
+PASS: reject an invalid archive signature
+PASS: reject an EVAS envelope with unsupported version zero and no CRC
+PASS: CRC32 matches the standard 123456789 vector
+PASS: CRC32 of empty input is zero
+PASS: 15 MB public sample CRC32 matches independent Python zlib result F739AEB9
+PASS: EVAS trailer stores the independently verified checksum little-endian
+PASS: EVAS v1 read/write without edits is byte-identical including prefix and trailer
+PASS: EVAS v1 opens with editable inventory and the expected missing outfit
+PASS: EVAS combines money, consumables, wardrobe and collection changes
+PASS: growing EVAS inventory preserves the complete v1 prefix
+PASS: changing the body replaces the old EVAS checksum
+PASS: modified EVAS passes CRC32 validation before saving
+PASS: saved EVAS reopens as EVAS with the requested money
+PASS: saved EVAS reopens with Black Pearl and 49 can records
+PASS: EVAS source and permanent residual backup remain byte-identical to the original
+PASS: repeating EVAS edits is idempotent including the checksum
+PASS: EVAS preserves section: NewGameCreateTime
+PASS: EVAS preserves section: DataMap_SBActor
+PASS: EVAS preserves section: DataMap_SBEffect
+PASS: EVAS preserves section: DataMap_SBQuest
+PASS: EVAS preserves section: DataMap_SBEnv
+PASS: EVAS preserves section: DataMap_SBAcquisitionSkill
+PASS: EVAS preserves section: SBFishingLogBook
+PASS: EVAS preserves section: DataMap_float
+PASS: EVAS preserves section: DataMap_FString
+PASS: EVAS preserves section: DataMap_int32
+PASS: EVAS preserves section: DataMap_int64
+PASS: EVAS preserves section: LevelActorStorage
+PASS: EVAS preserves section: TheaterStorage
+PASS: EVAS preserves section: UIStorage
+PASS: EVAS preserves section: GamePlayProgressRecordData
+PASS: EVAS preserves section: SBHint
+PASS: EVAS preserves section: TrainingRoomData
+PASS: EVAS preserves section: NewGamePlusBaseData
+PASS: EVAS preserves section: EventGiftInfo
+PASS: EVAS preserves section: NikkeStageInfo
+PASS: EVAS preserves section: SaveFileVersionInfo
+PASS: EVAS preserves section: OnlineAccountInfo
+PASS: EVAS body corruption fails integrity validation
+PASS: EVAS checksum corruption fails integrity validation
+PASS: unknown EVAS version is rejected instead of guessed
+PASS: truncated EVAS envelope is rejected
+PASS: EVAS with a missing trailing checksum is rejected
+PASS: EVAS with a missing nested GVAS header is rejected
+ALL STRUCTURAL TESTS PASSED. In-game behavior and version compatibility are NOT verified.
