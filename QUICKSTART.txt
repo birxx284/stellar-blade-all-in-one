@@ -1,0 +1,54 @@
+STELLAR BLADE - ALL IN ONE 0.4.0
+WINDOWS 64-BIT / PORTABLE
+
+Extract the ZIP and run StellarBlade-AllInOne.exe.
+You can keep the folder on a USB drive. No installation is required.
+
+1. OPEN YOUR SAVE
+Use Open .sav, Paste path, or Find latest.
+The usual Steam main save is:
+%LOCALAPPDATA%\SB\Saved\SaveGames\<SteamID64>\StellarBladeSave00.sav
+Do not select StellarBladeSetting.sav.
+Compatible GVAS and EVAS v1 with a valid CRC32 are supported.
+An opening report explains missing files, unsupported structures, or invalid CRC32.
+
+2. PREPARE EDITS
+Gold is available directly in the main window.
+Consumables and items opens a separate, searchable item window.
+Outfits and collections opens a separate cosmetic and collection window.
+Closing either window keeps the selection. All edits are saved together.
+Prepared edits do not modify the original file.
+
+3. REVIEW AND SAVE
+Click Review changes, read the report, then Save copy with the game closed.
+A new modified .sav and a permanent original backup are created.
+If a destination already exists, another name is used. Nothing is overwritten.
+
+BACKUPS
+The complete original is copied to CopiasSeguridad beside the destination.
+The backup is verified and accompanied by a dated recovery note and SHA-256.
+Previous backups are never removed automatically.
+To restore: close the game, keep a copy of current progress, and copy the original
+backup to an appropriate slot in your own save folder.
+
+LIMITS
+Physical chests, quests, story completion and Emil purchases are not changed.
+NieR collection edits require existing NieR data. DLC licenses are not activated.
+Only recognized, existing item stacks can have their quantities changed.
+Separate equipped charges are kept on increases and clamped on reductions.
+Other EVAS versions and damaged integrity checks are rejected.
+
+IN-GAME CONTROLS
+The separate in-game window includes money, health, energies and one consumable.
+It requires manual calibration in every session. No automatic profile is provided.
+Read its Help tab, recalibrate after loading another area or save, and verify each
+candidate using a small change. F8 stops value holding; it does not undo edits.
+
+VALIDATION
+An end user reported 0.3.3 working on their PC. The 0.4.0 window workflow and save
+operations have automated checks. This does not guarantee every game build.
+Verify loading, inventory, saving and reloading with your modified copy.
+
+The program works offline and never uploads your save.
+Source, Apache-2.0 license and third-party notices are included.
+GitHub: https://github.com/birxx284/stellar-blade-all-in-one

@@ -1,0 +1,38 @@
+﻿Stellar Blade - All in One 0.4.0
+
+The GVAS reader is adapted from perillaroc/sblade-explorer (gvas.rs),
+Copyright 2026 perillaroc, Apache License 2.0. See LICENSE.txt.
+https://github.com/perillaroc/sblade-explorer
+
+The wardrobe catalog derives internal identifiers, categories, DLC labels and
+English display names from that project's data/catalog.json. Guide text and
+images are not included.
+
+Changes include a C# port, a preserving writer, bounded parsing, inventory and
+collection operations, editable existing quantity records, a combined Windows
+interface, session memory controls, persistent original backups and structural tests.
+
+Research sample (not distributed):
+https://github.com/lecher-wang/Stellar-Blade-100-completion-save-file
+It was used to inspect schemas and test byte-identical round trips. Neither the
+original save nor its account identifier is included in this package.
+
+Functional item identifiers are used to address existing save records. The
+BetaCrystal/Gold name is corroborated by the original author's mod description:
+https://www.nexusmods.com/stellarblade/mods/788
+No code or assets from that mod are included.
+
+No source or binaries from Stellar Blade Mod Suite, Stellar Blade Cheat Manager,
+CNSSaveConverter or stellar-blade-macos-save-editor are incorporated. The Nexus
+Mod Suite page is linked only as an independent, optional reference.
+
+The EVAS v1 envelope layout (8-byte prefix and a little-endian CRC32 of bytes
+from offset 8 to before the final 4-byte checksum) was researched against:
+https://github.com/lotress/CNSSaveConverter/blob/master/savefile.py
+https://github.com/wuxiao00j/stellar-blade-macos-save-editor/blob/main/Sources/TrainerCore/SaveParser.swift
+Our CRC32 and envelope implementation is independently written; code from those
+projects is not included. Tests use the standard CRC32 vector and a Python zlib
+checksum as independent reference values. Game compatibility remains unverified.
+
+Stellar Blade and related names belong to their respective owners.
+This program is unofficial and is not affiliated with the game developers.
