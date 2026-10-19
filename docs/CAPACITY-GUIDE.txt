@@ -1,0 +1,31 @@
+HP / BETA / BURST - 0.5.2
+
+HP AND BETA
+The number is the permanent upgrade level, not a direct HP/energy amount.
+Choose a higher target level. Each new level costs 3 cores.
+If you do not have enough, enable Grant missing cores to supply and spend
+only the missing upgrade credits. Leave it off to use collected cores only.
+This does not mark fallen bodies or world pickups as collected.
+MAX means the supported game limit: 6 upgrades in a normal game, 9 in NG+.
+The editor cannot go beyond that cap. Higher limits require a game-data mod.
+Equipment can also affect the numeric maximum displayed by the game.
+
+BURST (THE RED ENERGY YOU IDENTIFIED)
+Choose a Burst Expansion Gear variant.
+Choose its destination:
+- Inventory only: it is available in your Gear menu; equip it in game.
+- Equip in gear slot: it replaces the gear in that unlocked slot immediately
+  in the modified save. The old gear remains in your inventory.
+The game calculates the capacity bonus after loading/equipping.
+The same gear cannot be equipped twice. Other gear slots stay unchanged.
+The editor does not unlock Burst skills or change the current bar fill.
+
+WEAPON
+WeaponCore quantities are editable in Consumables and items > Materials.
+Direct weapon upgrade levels are not implemented. Spend the cores at a camp.
+
+SAVING
+Click Save copy in the main window. Current fields are collected and validated
+automatically, and a permanent original backup is created.
+Use the new executable from the 0.5.2 ZIP. Earlier GitHub releases may differ.
+These new operations have structural/UI tests; running-game testing is pending.

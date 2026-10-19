@@ -30,7 +30,7 @@ namespace StellarAdvanced
         }
         public static string Report(string input, Exception error, SaveEditor editor)
         {
-            var report = new StringBuilder(); report.AppendLine("STELLAR BLADE · SAVE OPENING REPORT · 0.4.0");
+            var report = new StringBuilder(); report.AppendLine("STELLAR BLADE · SAVE OPENING REPORT · 0.7.0");
             report.AppendLine(editor == null ? "RESULT: SAVE NOT LOADED" : "RESULT: SAVE LOADED");
             try
             {

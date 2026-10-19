@@ -1,0 +1,56 @@
+﻿STELLAR BLADE - NG+ EQUIPMENT AND CORES - 0.7.0
+
+1. Close the game and open your current main .sav in the editor.
+2. Open NG+ equipment and cores. The header must say NG+ detected for Mk2.
+3. Choose Chill NG+ preset, or select individual equipment and materials.
+4. Review changes if desired, then Save copy from the main window.
+5. Load the modified copy on your game PC and equip your preferred new items.
+
+CHILL NG+ PRESET
+89 Mk2 entries = 12 exospines at level 3 + 77 gear variants.
+HP and Beta upgrade levels 9; weapon power level 40.
+At least 999 unspent SP and 500,000 gold; existing higher balances are retained.
+Core/module minimum stock 100: Weapon Core, Damaged Weapon Core, Drone module,
+Tumbler expansion material, Omnibolt and Exospine expansion module.
+Crafting/component minimum stock 1,000: three polymer/fiber materials,
+three wafer types and three microcomponents.
+Existing supported consumables get at least 99; existing ammo types at least 999.
+No DLC currency or story-only Burst Core is granted by this preset.
+
+UPGRADE COSTS AND STOCK ORDER
+Minimum resource stock is granted first. Explicit item quantity edits come next.
+Permanent upgrades then spend from the resulting inventory. HP/Beta use 3 matching
+cores per level, and weapon power uses 1 Weapon Core per level. With Grant missing
+upgrade credits, only an actual shortfall is granted and spent.
+Example: weapon level 15 -> 40 with a 100-core stock grant leaves 75 cores.
+An explicit manual stock of 30 takes precedence and leaves 5 after that upgrade.
+Exospine levels are granted without module costs; no existing higher level is lost.
+
+EQUIPMENT
+The full supported list has 24 exospines and 154 gear entries: base and Mk2 variants.
+All Mk2 equipment prepares 89 entries. All supported equipment prepares 178 in NG+
+or the 89 base entries in a normal run. Choose a target exospine level from 1 to 3.
+Gear saves use level 1; rarity and Mk2 are encoded in the item identifier.
+New items stay in inventory. The preset does not automatically replace your loadout.
+If a selected exospine is already equipped, its saved equipment copy receives the
+same upgraded level while keeping the exact inventory identity. Other slots stay.
+Duplicates, unknown identifiers, unsupported levels and missing genuine templates
+are rejected. Obtain one real item from that category in game if a template is absent.
+
+WHAT THE PRESET DOES NOT COMPLETE
+Chests, world pickups, quests, story abilities and learned skills stay unchanged.
+Source chests and bodies remain collectible; no pickup-blocking flag is applied.
+Their exact item-to-world links could not be verified for this implementation.
+Spend SP on your desired skills in game. Difficulty is not edited. The run remains
+the same NG+ run; base-game saves are not converted into NG+ by this feature.
+The official weapon cap is 15 normal / 40 NG+. HP/Beta caps remain 6 normal / 9 NG+.
+
+BACKUPS AND VALIDATION
+Save copy creates a permanent full original backup in CopiasSeguridad beside the
+destination. Original files and existing copies are preserved.
+The new operations have structural and UI tests, including GVAS/EVAS integrity,
+but have not been tested inside the game on this PC. Verify loading, equipment,
+upgrades, core balances, saving and reloading on your game PC.
+
+Official NG+ feature and level reference:
+https://blog.playstation.com/?p=391256

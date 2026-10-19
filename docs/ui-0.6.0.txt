@@ -1,0 +1,24 @@
+﻿PASS: main editor opens in a compact window
+PASS: editing and saving stay disabled before a valid save is loaded
+PASS: opening a valid save populates the compact gold control
+PASS: Save copy is clickable and saves edited gold without Prepare or Review clicks
+PASS: direct saving collects simultaneous unprepared item, SP and Emil edits across windows
+PASS: direct Save copy retains a byte-identical permanent original backup
+PASS: Save copy can also create an unchanged copy instead of remaining grey
+PASS: cancelling the destination does not write a copy or create a backup
+PASS: invalid edits are rejected before choosing a destination and Save copy remains available for correction
+PASS: preparing gold updates shared edits and keeps Save copy available without requiring a separate review
+PASS: object window initially shows only consumables
+PASS: preparing a consumable preserves the prepared gold in the shared session
+PASS: closing the consumables window hides it without discarding edits
+PASS: reopening consumables reuses one window and keeps the pending quantity
+PASS: outfit selection and quantity edits coexist across windows
+PASS: closing the wardrobe keeps its selection for later reopening
+PASS: combined review enables the main save button with both quantity changes
+PASS: a subsequent edit invalidates the old review while keeping direct saving available
+PASS: saving after an edit rebuilds validation and writes the latest amount rather than an old review
+PASS: discard clears wardrobe, collections and quantities together
+PASS: save action remains inside the compact minimum window size
+PASS: closing the main editor disposes all auxiliary editor windows
+PASS: compact UI interaction tests never modify the original save
+COMPACT UI WORKFLOW TESTS PASSED. No new in-game validation is implied.

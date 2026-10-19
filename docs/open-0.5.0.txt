@@ -1,0 +1,28 @@
+﻿PASS: quoted Copy as path input with whitespace is normalized
+PASS: local file URI with spaces resolves to the original file
+PASS: environment variables in pasted paths are expanded
+STELLAR BLADE · SAVE OPENING REPORT · 0.4.0
+RESULT: SAVE LOADED
+File: Partida con espacios.SAV
+Size: 15077369 bytes
+Header (up to 8 bytes): 47-56-41-53-02-00-00-00
+Format: GVAS
+Inventory read: 570 entries; editable items: 39; cans: 49/49.
+
+This check does not modify or upload your save.
+
+PASS: real sample loads through the same UI method and publishes the inventory success state
+PASS: a loaded UI file can prepare an editable money plan
+PASS: failed open clears the previous editor, plan, pending quantities and inventory event
+PASS: invalid file yields an explicit report with reason and header
+PASS: missing file gives a visible actionable path explanation
+PASS: directory input is distinguished from a save file
+PASS: empty pasted input explains that a complete file path is needed
+PASS: empty saves are distinguished from incompatible formats
+PASS: double extensions are diagnosed before parsing
+PASS: settings or other save classes are distinguished from main inventory saves
+PASS: valid EVAS loads through the UI and reports its verified format
+PASS: corrupt EVAS gives an explicit integrity error and clears the UI
+PASS: a valid file can be reopened after errors without stale edits
+PASS: all opening and diagnostic operations preserve original save bytes
+OPENING TESTS PASSED. No in-game compatibility is implied.

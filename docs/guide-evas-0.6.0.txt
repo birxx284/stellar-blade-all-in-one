@@ -1,0 +1,29 @@
+﻿PASS: 304 unique verified cosmetic identifiers remain the backend allowlist
+PASS: every catalog item has acquisition, location, requirements and source details
+PASS: coverage includes 126 EVE Nano Suits, with other categories counted separately
+PASS: Symbol of Legacy describes its actual transformation effect
+PASS: White Full Dress explicitly identifies its New Game Plus requirement
+PASS: Black Pearl explains its 49-can reward requirement
+PASS: three special looks are reference entries outside the save-edit allowlist
+PASS: permanent Angel reference prepares the author's actual Red Passion replacement
+PASS: catalog and special references can be browsed without a save
+PASS: Angel shortcut selects the special guide and displays transformation instructions
+PASS: offline browsing cannot prepare items or save a copy
+PASS: reference checkboxes cannot become fake costume requests
+PASS: accent-insensitive search finds Angel acquisition text
+PASS: Angel requirement can be prepared from a save without the earrings
+PASS: Prepare required item queues exactly one real accessory
+PASS: direct Save copy works after preparing an Angel reference
+PASS: output contains one actual Symbol of Legacy item with ownership
+PASS: accessory acquisition record is synchronized
+PASS: no UI reference identifiers are written to inventory or ownership
+PASS: all world, quest, story, actor and other unrelated sections remain byte-identical
+PASS: permanent backup is identical to the original fixture
+PASS: external Angel action prepares only the real Red Passion suit
+PASS: external mod instructions distinguish item preparation from separate installation
+PASS: story-only transformation has no forced-unlock action
+PASS: uncatalogued owned identifiers are informational and cannot be granted
+PASS: backend independently rejects special reference identifiers
+PASS: guide preparation action stays visible at minimum window size
+PASS: guide workflow leaves the original research save unchanged
+COSMETIC GUIDE WORKFLOW TESTS PASSED. In-game verification remains pending.

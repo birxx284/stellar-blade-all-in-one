@@ -1,12 +1,15 @@
-﻿Stellar Blade - All in One 0.4.0
+﻿Stellar Blade - All in One 0.7.0
 
 The GVAS reader is adapted from perillaroc/sblade-explorer (gvas.rs),
 Copyright 2026 perillaroc, Apache License 2.0. See LICENSE.txt.
 https://github.com/perillaroc/sblade-explorer
 
 The wardrobe catalog derives internal identifiers, categories, DLC labels and
-English display names from that project's data/catalog.json. Guide text and
-images are not included.
+English display names from that project's data/catalog.json. Acquisition areas,
+location facts and requirements are also derived from its structured metadata.
+Our concise English instructions are newly written summaries; third-party guide
+paragraphs and images are not reproduced. The original Apache-2.0 attribution
+and license are retained. Sources are linked per entry.
 
 Changes include a C# port, a preserving writer, bounded parsing, inventory and
 collection operations, editable existing quantity records, a combined Windows
@@ -36,3 +39,48 @@ checksum as independent reference values. Game compatibility remains unverified.
 
 Stellar Blade and related names belong to their respective owners.
 This program is unofficial and is not affiliated with the game developers.
+
+Player-upgrade research (format facts and identifiers only; no assets bundled):
+https://github.com/Stellar-Blade-Modding-Team/Stellar-Blade-Modding-Guide
+The public v1.4.1 type mappings identify ESBCharacterLevelType: None=0, Body=1,
+Beta=2, RechargeablePotion=3, Weapon=4, GearSlot=5, ProtectorSlot=6.
+The research save stores seven UInt32Property entries in PlayerActor.LevelArray.
+Core item identifiers BodyCore and BetaCore and Stellar Tear alias Money_Nier
+were cross-checked against public item metadata. No third-party catalog or code
+from the Control Panel is incorporated or redistributed.
+https://www.nexusmods.com/stellarblade/mods/1911 (Money_Nier = Emil shop currency)
+https://www.viiozero.de/leitfaeden/stellar-blade/ (author's collection walkthrough:
+three Body/Beta cores per upgrade; six base-game upgrades)
+https://www.nexusmods.com/stellarblade/mods/1061 (existing extended core limits,
+load-time automatic core consumption, and CharacterLevelTable dependency)
+Burst/Tachy maxima are not inferred from current gauge values.
+
+Burst expansion functionality is independently written. Four functional item
+identifiers (Gear_MaxBurstGauge_Uncommon/Rare and their _MK2 variants) were
+cross-checked with actual inventory records in the public research save. Only
+identifier/name facts are used; no third-party item catalog is redistributed.
+ESBEquipType GearCommon1..4 map to saved equipment keys 1..4 in the public type
+mapping; LevelArray[5] is the GearSlot upgrade count. Only existing unlocked
+slot records are replaced. Current gauge values are not treated as capacities.
+
+Appearance guide research and external references:
+https://github.com/perillaroc/sblade-explorer/blob/main/data/catalog.json
+https://blog.playstation.com/2024/11/11/stellar-blades-nier-automata-dlc-photo-mode-launch-nov-20/
+https://www.gamerguides.com/stellar-blade/database/exterior/earrings/symbol-of-legacy
+https://www.nexusmods.com/stellarblade/mods/296
+Playable Angel Outfit is by Kaineriqa and replaces Red Passion. It is linked only;
+no files, assets or code from that mod are incorporated or redistributed.
+The guide's prepare action adds only the verified base item. It does not install
+mods, unlock story transformations, or claim current-build mod compatibility.
+
+NG+ equipment and weapon expansion (independent implementation):
+https://blog.playstation.com/?p=391256
+Shift Up documents weapon caps 15 normal / 40 NG+, HP/Beta caps 6/9 and Mk2 gear.
+All 178 supported equipment identifiers were cross-checked against actual records
+in the non-distributed research save. Gear rarity/Mk2 IDs are not synthesized from
+unknown variants. Common Burst Expansion Gear is excluded as unverified.
+PT_ exospines use StatLevel 1..3; gear uses StatLevel 1. Equipment slots are copies
+of the same SavedGuid inventory instance. Weapon is LevelArray[4], corroborated
+by ESBCharacterLevelType in the public type mapping and the research save.
+No third-party equipment catalog, descriptions, source, mod or game assets are
+incorporated. Labels summarize functional identifiers and item-name facts.

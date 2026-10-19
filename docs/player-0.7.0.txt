@@ -1,0 +1,44 @@
+﻿PASS: public save resolves HP/Beta core levels and unspent SP separately
+PASS: case-insensitive Unreal core name resolves the lowercase betacore stack
+PASS: unchanged player settings preserve every byte
+PASS: unsupported capacity above the NG+ limit is rejected
+PASS: negative skill points are rejected
+PASS: out-of-range skill points are rejected
+PASS: insufficient collected cores prevent an unfunded upgrade (False)
+PASS: HP/Beta upgrades consume 3 cores per level and set actual unspent points (False)
+PASS: invested and remaining core totals are conserved (False)
+PASS: Emil currency is created from the same-save currency schema and coexists with gold (False)
+PASS: output retains the original GVAS/EVAS format (False)
+PASS: combined edit retains a verified permanent original backup (False)
+PASS: all other actor data, XP, SP level, equipment and current gauges remain byte-identical (False)
+PASS: preserved DataMap_SBEnv (False)
+PASS: preserved DataMap_SBQuest (False)
+PASS: preserved DataMap_SBAcquisitionSkill (False)
+PASS: preserved NewGamePlusBaseData (False)
+PASS: preserved OnlineAccountInfo (False)
+PASS: repeating the same reviewed edit is idempotent (False)
+PASS: insufficient collected cores prevent an unfunded upgrade (True)
+PASS: HP/Beta upgrades consume 3 cores per level and set actual unspent points (True)
+PASS: invested and remaining core totals are conserved (True)
+PASS: Emil currency is created from the same-save currency schema and coexists with gold (True)
+PASS: output retains the original GVAS/EVAS format (True)
+PASS: combined edit retains a verified permanent original backup (True)
+PASS: all other actor data, XP, SP level, equipment and current gauges remain byte-identical (True)
+PASS: preserved DataMap_SBEnv (True)
+PASS: preserved DataMap_SBQuest (True)
+PASS: preserved DataMap_SBAcquisitionSkill (True)
+PASS: preserved NewGamePlusBaseData (True)
+PASS: preserved OnlineAccountInfo (True)
+PASS: repeating the same reviewed edit is idempotent (True)
+PASS: lowering an upgrade is rejected because refunded cores may be automatically reapplied
+PASS: Stellar Tears stay unavailable without existing NieR data
+PASS: backend rejects forced NieR currency creation without DLC save data
+PASS: UI retains existing upgrade minimums and the supported game limit
+PASS: player window stages points and shop edits in the shared session
+PASS: player window changes build a combined verified review
+PASS: closing and reopening preserves one player window and its changes
+PASS: discard resets both shared requests and player controls
+PASS: loading another save refreshes DLC availability in the open player window
+PASS: main close disposes the player window
+PASS: all player tests preserve the reference save
+PLAYER UPGRADE TESTS PASSED. Structural and UI validation; no game is installed on this PC.

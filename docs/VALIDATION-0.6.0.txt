@@ -1,0 +1,22 @@
+﻿STELLAR BLADE - ALL IN ONE 0.6.0 VALIDATION
+
+96 checks passed for this build:
+- Cosmetic acquisition guide and Angel workflow: 28 GVAS checks.
+- Same workflow with a valid EVAS v1 input: 28 checks.
+- Shared compact UI and direct Save copy: 23 checks.
+- Opening, paths and error recovery: 17 checks.
+
+Guide checks include complete metadata coverage; offline browsing; search;
+reference-only guards; actual Symbol of Legacy inventory, ownership and
+acquisition records; preparing the real Red Passion replacement base item;
+unchanged unrelated sections; original backups; and unknown-ID read-only behavior.
+
+The Angel detail panel and compact main window were rendered and visually checked.
+External source buttons were not clicked during the tests. No mod was installed.
+
+The game is on another PC. These results do not validate in-game appearance,
+latest-patch behavior, story ability availability or external-mod compatibility.
+Earlier-version reports are retained under their original versioned filenames;
+their results are historical and are not counted in the 96 checks above.
+
+The distributable includes no save, account ID, game assets or external Angel mod.

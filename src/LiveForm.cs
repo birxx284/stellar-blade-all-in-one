@@ -59,7 +59,7 @@ namespace StellarAssist
             Controls.Add(root);
             var heading = new Panel { Dock = DockStyle.Fill };
             heading.Controls.Add(new Label { Text = "STELLAR BLADE", Font = new Font("Segoe UI", 23, FontStyle.Bold), AutoSize = true, Location = new Point(0, 0) });
-            heading.Controls.Add(new Label { Text = "All in One 0.4.0 · in-game controls · manual calibration", AutoSize = true, ForeColor = muted, Location = new Point(3, 45) });
+            heading.Controls.Add(new Label { Text = "All in One 0.7.0 · in-game controls · manual calibration", AutoSize = true, ForeColor = muted, Location = new Point(3, 45) });
             root.Controls.Add(heading, 0, 0);
             var warning = new Label { Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft, Padding = new Padding(10, 0, 10, 0), BackColor = Color.FromArgb(255, 244, 213),
                 Text = "MANUAL CALIBRATION · No verified automatic profile. Locate each value in this session before enabling it." };
@@ -317,7 +317,7 @@ namespace StellarAssist
         }
         public string BuildReport()
         {
-            var report = new StringBuilder(); report.AppendLine("Stellar Blade · All in One 0.4.0 (manual calibration)");
+            var report = new StringBuilder(); report.AppendLine("Stellar Blade · All in One 0.7.0 (manual calibration)");
             report.AppendLine("UTC date: " + DateTime.UtcNow.ToString("u")); report.AppendLine("Verified automatic profile: NO");
             report.AppendLine("Connected process: " + (memory != null && memory.Alive ? "SB-Win64-Shipping" : "NO"));
             if (memory != null && memory.Alive)

@@ -36,7 +36,7 @@ namespace StellarUnified
                 var root = new TableLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(12), ColumnCount = 1, RowCount = 2 };
                 root.RowStyles.Add(new RowStyle(SizeType.Percent, 100)); root.RowStyles.Add(new RowStyle(SizeType.Absolute, 40)); dialog.Controls.Add(root);
                 root.Controls.Add(new TextBox { Text = text, Multiline = true, ReadOnly = true, ScrollBars = ScrollBars.Vertical, Dock = DockStyle.Fill, BackColor = Color.White }, 0, 0);
-                var close = Button("Volver al editor", delegate { dialog.Close(); }, false); root.Controls.Add(close, 0, 1); dialog.AcceptButton = close; dialog.CancelButton = close;
+                var close = Button("Back to editor", delegate { dialog.Close(); }, false); root.Controls.Add(close, 0, 1); dialog.AcceptButton = close; dialog.CancelButton = close;
                 dialog.ShowDialog(owner);
             }
         }

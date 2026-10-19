@@ -1,0 +1,39 @@
+﻿PASS: unfunded HP upgrade still requires explicit grant selection (False)
+PASS: explicit grant upgrades HP/Beta with zero held or missing core stacks (False)
+PASS: review declares exact missing Body/Beta credits rather than claiming world pickups (False)
+PASS: Burst gear is granted once and equipped using its actual inventory identity (False)
+PASS: other gear slots and player stats remain byte-identical (False)
+PASS: preserved DataMap_SBEnv (False)
+PASS: preserved DataMap_SBQuest (False)
+PASS: preserved DataMap_SBAcquisitionSkill (False)
+PASS: preserved NewGamePlusBaseData (False)
+PASS: format integrity and permanent original backup are retained (False)
+PASS: reapplying granted upgrades and equipped Burst gear is idempotent (False)
+PASS: the same Burst gear cannot be duplicated across equipped slots (False)
+PASS: grant mode cannot bypass the game's maximum core level (False)
+PASS: story BurstCore cannot be granted as expansion gear (False)
+PASS: invalid Burst equipment slots are rejected (False)
+PASS: inventory-only Burst grant does not pretend to change maximum capacity without equipping (False)
+PASS: only unlocked gear slots are offered, even when locked slot records exist
+PASS: Burst equipment cannot bypass a locked gear slot
+PASS: grant mode consumes held fragments and adds only the one missing core credit
+PASS: HP/Beta selectors are enabled without spare cores; grants remain opt-in
+PASS: Save copy commits HP, Beta, grant selection and Burst equipment directly from the new window
+PASS: unfunded HP upgrade still requires explicit grant selection (True)
+PASS: explicit grant upgrades HP/Beta with zero held or missing core stacks (True)
+PASS: review declares exact missing Body/Beta credits rather than claiming world pickups (True)
+PASS: Burst gear is granted once and equipped using its actual inventory identity (True)
+PASS: other gear slots and player stats remain byte-identical (True)
+PASS: preserved DataMap_SBEnv (True)
+PASS: preserved DataMap_SBQuest (True)
+PASS: preserved DataMap_SBAcquisitionSkill (True)
+PASS: preserved NewGamePlusBaseData (True)
+PASS: format integrity and permanent original backup are retained (True)
+PASS: reapplying granted upgrades and equipped Burst gear is idempotent (True)
+PASS: the same Burst gear cannot be duplicated across equipped slots (True)
+PASS: grant mode cannot bypass the game's maximum core level (True)
+PASS: story BurstCore cannot be granted as expansion gear (True)
+PASS: invalid Burst equipment slots are rejected (True)
+PASS: inventory-only Burst grant does not pretend to change maximum capacity without equipping (True)
+PASS: capacity checks leave the reference save unchanged
+CAPACITY TESTS PASSED. Structural/UI checks; running-game validation is still required.

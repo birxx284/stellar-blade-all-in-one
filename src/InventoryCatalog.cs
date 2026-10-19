@@ -23,7 +23,7 @@ namespace StellarAdvanced
             Add(items, "Money_JunkIron_A", "Microcomponent A", "Materials", 9999, true);
             Add(items, "Money_JunkIron_B", "Microcomponent B", "Materials", 9999, true);
             Add(items, "Money_JunkIron_C", "Microcomponent C", "Materials", 9999, true);
-            Add(items, "Money_Nier", "NieR currency (if present)", "DLC currency", 9999, true);
+            Add(items, "Money_Nier", "Stellar Tears · Emil's shop (NieR)", "DLC currency", 9999, true);
             Add(items, "Money_Nikke", "Nikke currency (if present)", "DLC currency", 9999, true);
             Add(items, "HP_Potion_Small", "Small health potion", "Consumables", 999, false);
             Add(items, "HP_Potion", "Health potion", "Consumables", 999, false);

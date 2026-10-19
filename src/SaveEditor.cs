@@ -12,6 +12,8 @@ namespace StellarAdvanced
     sealed class CatalogItem
     {
         public string Alias, Name, Category, Dlc;
+        public string Area, Location, Requirements, HowToGet, SourceUrl, Method, RequiredAlias;
+        public bool ReferenceOnly;
         public override string ToString() { return Name + (String.IsNullOrEmpty(Dlc) ? "" : " [" + Dlc + "]"); }
         public static List<CatalogItem> Load()
         {
@@ -24,6 +26,7 @@ namespace StellarAdvanced
                     items.Add(new CatalogItem { Alias = fields[0], Name = fields[1], Category = fields[2], Dlc = fields[3] });
                 }
             }
+            CosmeticGuide.Attach(items);
             return items;
         }
     }
@@ -99,8 +102,8 @@ namespace StellarAdvanced
         static Value QuantityTarget(Value entry, string alias)
         {
             Node nested = entry.Field("ItemInstance");
-            if (nested != null && nested.Field("ItemAlias") != null && nested.Require("ItemAlias").Text == alias) return nested.Data;
-            Node direct = entry.Field("ItemAlias"); return direct != null && direct.Data.Text == alias ? entry : null;
+            if (nested != null && nested.Field("ItemAlias") != null && String.Equals(nested.Require("ItemAlias").Text, alias, StringComparison.OrdinalIgnoreCase)) return nested.Data;
+            Node direct = entry.Field("ItemAlias"); return direct != null && String.Equals(direct.Data.Text, alias, StringComparison.OrdinalIgnoreCase) ? entry : null;
         }
         static bool CountType(Value value) { return !value.IsRaw && (value.Type == "IntProperty" || value.Type == "UInt32Property"); }
         public List<StackItem> Stacks()
@@ -116,7 +119,25 @@ namespace StellarAdvanced
                 Node charge = targets[0].Field("ItemChargeCount"); item.Charges = charge == null || charge.Data.IsRaw ? count.Integer : charge.Data.Integer;
                 item.Maximum = Math.Max(item.Maximum, checked((int)item.Amount)); output.Add(item);
             }
+            if (HasNierData && !Inventory.Any(delegate(Value v) { return QuantityTarget(v, "Money_Nier") != null; }))
+                output.Add(InventoryCatalog.Items["Money_Nier"].DefinitionCopy());
             return output.OrderBy(delegate(StackItem item) { return item.Alias == "BetaCrystal" ? "0" : item.Category + item.Name; }).ToList();
+        }
+        internal static Value AddStack(Value items, Value template, string alias)
+        {
+            Value entry = Writer.CloneValue(template); Value instance = RequireField(entry, "ItemInstance");
+            RequireField(instance, "ItemAlias").Set(alias); RequireField(instance, "ItemCount").Set(0); RequireField(instance, "ItemChargeCount").Set(0);
+            RequireField(instance, "Equiped").Set(false);
+            Node guid = instance.Field("SavedGuid");
+            if (guid == null || guid.Data.Raw == null || guid.Data.Raw.Length != 16) throw new InvalidDataException("Unsupported stack identifier.");
+            guid.Data.Raw = Guid.NewGuid().ToByteArray();
+            Node pocket = instance.Field("PocketGuid");
+            if (pocket == null || pocket.Data.Raw == null || pocket.Data.Raw.Length != 16) throw new InvalidDataException("Unsupported stack pocket.");
+            pocket.Data.Raw = new byte[16];
+            RequireField(items, "Inventory").Elements.Add(entry);
+            Value obtained = RequireField(items, "ItemOtaineSet");
+            if (!obtained.Elements.Any(delegate(Value v) { return String.Equals(v.Text, alias, StringComparison.OrdinalIgnoreCase); })) obtained.Elements.Add(Writer.Text(alias));
+            return instance;
         }
         static void ApplyQuantities(Value items, IDictionary<string, int> requested, EditPlan plan)
         {
@@ -127,6 +148,15 @@ namespace StellarAdvanced
                 StackItem definition;
                 if (!InventoryCatalog.Items.TryGetValue(request.Key, out definition)) throw new InvalidDataException("Quantity editing is not allowed for this item: " + request.Key);
                 List<Value> targets = inventory.Select(delegate(Value entry) { return QuantityTarget(entry, request.Key); }).Where(delegate(Value value) { return value != null; }).ToList();
+                if (targets.Count == 0 && request.Key == "Money_Nier" && request.Value > 0)
+                {
+                    if (!RequireField(items, "ItemOtaineSet").Elements.Any(delegate(Value v) { return v.Text != null && v.Text.IndexOf("Nier", StringComparison.OrdinalIgnoreCase) >= 0; }) &&
+                        !inventory.Any(delegate(Value v) { Node n = v.Field("ItemInstance"); return n != null && n.Field("ItemAlias") != null && n.Require("ItemAlias").Text.IndexOf("Nier", StringComparison.OrdinalIgnoreCase) >= 0; }))
+                        throw new InvalidDataException("Existing NieR save data is required for Stellar Tears.");
+                    var templates = inventory.Where(delegate(Value v) { return QuantityTarget(v, "BetaCrystal") != null; }).ToList();
+                    if (templates.Count != 1) throw new InvalidDataException("A unique gold stack is needed to create Stellar Tears.");
+                    targets.Add(AddStack(items, templates[0], "Money_Nier")); plan.AddedItems++;
+                }
                 if (targets.Count != 1) throw new InvalidDataException("The item must exist exactly once in the inventory: " + definition.Name);
                 Value count = RequireField(targets[0], "ItemCount");
                 if (!CountType(count)) throw new InvalidDataException("Unsupported quantity type: " + definition.Name);
@@ -157,7 +187,7 @@ namespace StellarAdvanced
             Value template = records.Find(delegate(Value value) { return value.Field("AchievementAlias") != null && value.Field("ProgressValue") != null && value.Field("bCompleted") != null && value.Field("bRecievedReward") != null; });
             if (template == null) throw new InvalidDataException("No compatible progress template was found."); return template;
         }
-        static void Progress(List<Value> records, string alias, int amount, EditPlan plan)
+        internal static void Progress(List<Value> records, string alias, int amount, EditPlan plan)
         {
             Value record = records.Find(delegate(Value v) { Node field = v.Field("AchievementAlias"); return field != null && field.Data.Text == alias; });
             if (record != null)
@@ -216,6 +246,10 @@ namespace StellarAdvanced
         public EditPlan Build(IEnumerable<CatalogItem> requested, bool allCans, bool nierCollection)
         { return Build(requested, allCans, nierCollection, null); }
         public EditPlan Build(IEnumerable<CatalogItem> requested, bool allCans, bool nierCollection, IDictionary<string, int> quantities)
+        { return Build(requested, allCans, nierCollection, quantities, null); }
+        public EditPlan Build(IEnumerable<CatalogItem> requested, bool allCans, bool nierCollection, IDictionary<string, int> quantities, PlayerRequest player)
+        { return Build(requested, allCans, nierCollection, quantities, player, null); }
+        public EditPlan Build(IEnumerable<CatalogItem> requested, bool allCans, bool nierCollection, IDictionary<string, int> quantities, PlayerRequest player, EquipmentRequest equipment)
         {
             var selected = requested.GroupBy(delegate(CatalogItem i) { return i.Alias; }).Select(delegate(IGrouping<string, CatalogItem> g) { return g.First(); }).ToList();
             // Whitelist selection from the embedded catalog, never arbitrary aliases or save-derived commands.
@@ -232,7 +266,9 @@ namespace StellarAdvanced
             var edited = Archive.Parse(Original); Value items = MapStruct(edited, "DataMap_SBItem", "Item");
             List<Value> records = edited.Field("SBAchievement").Require("AchievementList").Elements;
             var plan = new EditPlan { SourceHash = Hash(Original) };
+            EquipmentEditor.Apply(this, edited, equipment, items, plan);
             ApplyQuantities(items, quantities, plan);
+            PlayerEditor.Apply(this, edited, player, items, records, plan);
             foreach (CatalogItem item in selected) AddItem(items, records, item, plan);
             if (allCans)
             {
@@ -259,8 +295,9 @@ namespace StellarAdvanced
             foreach (Node node in Archive.Fields)
             {
                 if (node.Name == "DataMap_SBItem" || node.Name == "SBAchievement") continue;
+                if (node.Name == "DataMap_SBActor" && ((player != null && player.Any) || (equipment != null && equipment.Any))) { PlayerEditor.VerifyUnrelated(Archive, verified, player, equipment); continue; }
                 Node after = verified.Field(node.Name);
-                if (after == null || !Writer.NodeBytes(node).SequenceEqual(Writer.NodeBytes(after))) throw new InvalidDataException("A change was detected outside inventory or collections: " + node.Name);
+                if (after == null || !Writer.NodeBytes(node).SequenceEqual(Writer.NodeBytes(after))) throw new InvalidDataException("A change was detected outside the supported editing sections: " + node.Name);
             }
             return plan;
         }

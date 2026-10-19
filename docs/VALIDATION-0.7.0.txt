@@ -1,0 +1,14 @@
+﻿STELLAR BLADE - ALL IN ONE 0.7.0 VALIDATION
+
+equipment-0.7.0.txt: 50 checks passed.
+player-0.7.0.txt: 43 checks passed.
+capacity-0.7.0.txt: 38 checks passed.
+ui-0.7.0.txt: 23 checks passed.
+Total: 154 passing checks in this build.
+
+Equipment suite covers both GVAS and EVAS, actual core costs and equipped identities.
+All earlier-version reports are historical and excluded from this total.
+Equipment and compact main windows were rendered and visually checked.
+The source package was rebuilt with its supplied build script.
+Running-game verification remains pending; the game is on another PC.
+No save, account identifier, game asset or external mod is distributed.

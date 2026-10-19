@@ -1,0 +1,51 @@
+﻿PASS: catalog contains 178 unique equipment identifiers
+PASS: every supported gear/exospine identifier is independently present in the research inventory
+PASS: catalog separates 24 exospines, 154 gear items and 89 Mk2 variants
+PASS: all Mk2 gear and level-3 exospines are granted once with ownership (False)
+PASS: weapon level 15 -> 40 spends 25 cores from the newly granted 100-core stack (False)
+PASS: HP, Beta and SP changes compose with equipment and weapon grants (False)
+PASS: already-equipped exospine copies retain real identity and matching upgraded levels (False)
+PASS: world, story, quests, skills, NG+ snapshots and unrelated player fields stay unchanged (False)
+PASS: world pockets, event items and inventory slot metadata stay byte-identical (False)
+PASS: format integrity and full permanent original backup are preserved (False)
+PASS: all supported equipment has distinct saved identities (False)
+PASS: repeating equipment grants is byte-identical and does not create duplicates (False)
+PASS: explicit Weapon Core quantity takes precedence over minimum stock before upgrade costs (False)
+PASS: weapon upgrade without held cores or an explicit grant is rejected (False)
+PASS: weapon power cannot exceed the NG+ level-40 cap (False)
+PASS: unsupported exospine levels are rejected
+PASS: unverified Common Burst gear cannot be fabricated
+PASS: story Burst Core is outside the material grant allowlist
+PASS: negative material quantities are rejected
+PASS: material grants above the supported stock cap are rejected
+PASS: normal saves retain the official weapon-level-15 cap
+PASS: Mk2 grants do not bypass the NG+ requirement
+PASS: normal weapon upgrades cannot bypass their level cap
+PASS: missing genuine exospine templates cause a clear rejection
+PASS: ambiguous duplicate exospines are rejected without deleting existing items
+PASS: lowercase Unreal aliases preserve equipped identity while upgrading the matching exospine
+PASS: new window browses Mk2 equipment offline while its preset stays disabled
+PASS: Chill preset stages Mk2 equipment, materials and verified NG+ upgrades in one shared session
+PASS: preset gold appears immediately in the main editor field
+PASS: closing and reopening the equipment window retains pending requests
+PASS: the real Save copy button accepts combined equipment and unprepared core/weapon input
+PASS: direct saving collects both dirty minimum stock and weapon level before spending cores
+PASS: gold, SP and Mk2 equipment are saved together
+PASS: discard clears equipment/material requests and restores weapon input to the loaded save
+PASS: loading a normal-run save disables the NG+ preset
+PASS: material actions remain inside the minimum window size
+PASS: closing the main editor disposes the equipment window
+PASS: all Mk2 gear and level-3 exospines are granted once with ownership (True)
+PASS: weapon level 15 -> 40 spends 25 cores from the newly granted 100-core stack (True)
+PASS: HP, Beta and SP changes compose with equipment and weapon grants (True)
+PASS: already-equipped exospine copies retain real identity and matching upgraded levels (True)
+PASS: world, story, quests, skills, NG+ snapshots and unrelated player fields stay unchanged (True)
+PASS: world pockets, event items and inventory slot metadata stay byte-identical (True)
+PASS: format integrity and full permanent original backup are preserved (True)
+PASS: all supported equipment has distinct saved identities (True)
+PASS: repeating equipment grants is byte-identical and does not create duplicates (True)
+PASS: explicit Weapon Core quantity takes precedence over minimum stock before upgrade costs (True)
+PASS: weapon upgrade without held cores or an explicit grant is rejected (True)
+PASS: weapon power cannot exceed the NG+ level-40 cap (True)
+PASS: all equipment workflows leave the original research save unchanged
+NG+ EQUIPMENT WORKFLOW TESTS PASSED. Running-game validation remains pending.
